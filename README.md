@@ -243,7 +243,7 @@ A walkthrough demonstrating:
 - Custom tooltips
 - Trend analysis
 
-📹 **Demo Video:** `Demo/Demo.mp4`
+📹 **Watch the Dashboard Demo** `[Demo/Demo.mp4](https://github.com/er-sourabh/Retail-Sales-Dashboard-PowerBI/blob/main/Demo/Retail_Dashboard_Demo.mp4)`
 
 ---
 
