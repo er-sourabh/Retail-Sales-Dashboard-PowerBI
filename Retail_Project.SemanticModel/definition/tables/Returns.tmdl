@@ -1,0 +1,33 @@
+table Returns
+	lineageTag: b813d9f8-521b-47b0-8ab6-a756eb5910fc
+
+	column Returned
+		dataType: string
+		lineageTag: a309595d-e513-473d-b48d-4feedf33d514
+		summarizeBy: none
+		sourceColumn: Returned
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderId
+		dataType: string
+		lineageTag: d92181f7-6142-42fc-a411-b517ac700477
+		summarizeBy: none
+		sourceColumn: OrderId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Returns = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "Returns"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

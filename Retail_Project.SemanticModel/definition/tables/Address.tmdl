@@ -1,0 +1,74 @@
+table Address
+	lineageTag: 14539be9-9f19-4366-81a0-6e64a8c233cd
+
+	column AddressId
+		dataType: int64
+		formatString: 0
+		lineageTag: c657e4d8-b913-4efd-b02e-120bf841a311
+		summarizeBy: none
+		sourceColumn: AddressId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 22b92e8b-a763-4cd2-83ee-dc3cc23c3966
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 5d34bb9e-25be-4a74-993a-7924ab50f39d
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: ec7c5ff9-448f-4011-9a3e-ad3bb13211b1
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c37a3df-de00-49d0-a88a-3941e7301626
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Country Hierarchy'
+		lineageTag: 3c319ca4-e993-4b09-8580-97bf6a9ff119
+
+		level Country
+			lineageTag: b4fe48a6-f2ba-4da6-9195-ce5e383f1272
+			column: Country
+
+		level State
+			lineageTag: 82288a68-3cbb-4671-969a-48b049dd945e
+			column: State
+
+		level City
+			lineageTag: 0c3e16e2-f4b7-41d2-b3f0-f10d48daedca
+			column: City
+
+	partition Address = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "Address"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,65 @@
+table Products
+	lineageTag: 37cd1e37-d915-47ef-9f1a-1319cc1e3dda
+
+	column ProductId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ca03488-8aeb-4d63-8836-3042da208996
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 30a9d811-10cd-4bfd-a450-038828aa5f5c
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sub-Category
+		dataType: string
+		lineageTag: e232c96e-0cca-4928-9f74-9ef355a86e97
+		summarizeBy: none
+		sourceColumn: Sub-Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: e24fc7da-be3f-4e42-813e-66c9c352a15a
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Product hierarchy'
+		lineageTag: efe0019a-9fb7-4d0c-9e62-264470dd5989
+
+		level Category
+			lineageTag: 70d509cb-da35-40e1-ab08-fca3f3021c9e
+			column: Category
+
+		level Sub-Category
+			lineageTag: eafd40bb-ad43-4096-9fc6-49a199be104b
+			column: Sub-Category
+
+		level ProductName
+			lineageTag: 93770ad4-5c39-41fc-9a4a-c241e30c2a94
+			column: ProductName
+
+	partition Products = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "Products"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

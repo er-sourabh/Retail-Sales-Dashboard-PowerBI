@@ -1,0 +1,163 @@
+table DateTable
+	lineageTag: 80ec2ee2-2871-4ad6-bec6-9a4250143363
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 533ddbd2-30ed-48ef-9a95-99aeab46051f
+		summarizeBy: none
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e46eefcc-386d-4b06-aaa1-3d0ad9fff8e3
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: a4a6522e-6084-43d1-945f-eb9eabd21a6b
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column QtrNum
+		dataType: int64
+		formatString: 0
+		lineageTag: bbcca7d7-77d6-4628-ad40-498a7aa1f883
+		summarizeBy: none
+		sourceColumn: QtrNum
+
+		annotation SummarizationSetBy = User
+
+	column QtrName
+		dataType: string
+		lineageTag: 9f69421b-62b2-4905-9b34-678fc0687d52
+		summarizeBy: none
+		sourceColumn: QtrName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fba6edc-62b3-4f44-ae85-85812294f84b
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = User
+
+	column MonthName
+		dataType: string
+		lineageTag: 79433552-5ec3-44f2-8a4c-5c81049d1dcf
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNum
+		dataType: int64
+		formatString: 0
+		lineageTag: c71364fd-c2c2-4b38-9591-e8bc0ff28fa0
+		summarizeBy: none
+		sourceColumn: WeekNum
+
+		annotation SummarizationSetBy = User
+
+	column WeekName
+		dataType: string
+		lineageTag: 6a6ca43c-924c-4522-b788-5ec342de7007
+		summarizeBy: none
+		sourceColumn: WeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		lineageTag: 5782e1f0-dbad-49a6-85b0-4da5b8eb2645
+		summarizeBy: sum
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDayNum
+		dataType: int64
+		formatString: 0
+		lineageTag: 74cff552-34dc-417a-a250-e289f4254d52
+		summarizeBy: none
+		sourceColumn: WeekDayNum
+
+		annotation SummarizationSetBy = User
+
+	column WeekDayName
+		dataType: string
+		lineageTag: f25080d6-0bd3-4d8c-b50b-4154231bb302
+		summarizeBy: none
+		sourceColumn: WeekDayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY-YEAR =
+			IF(DateTable[Month] <= 3,
+			            "FY"&YEAR(DateTable[Date])-1&"-"&YEAR(DateTable[Date]),
+			            "FY"&YEAR(DateTable[Date])&"-"&YEAR(DateTable[Date])+1
+			            )
+		lineageTag: 227d5f3c-4ee7-441a-9c23-2e55b9324718
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY-QTR = SWITCH(TRUE(),MONTH(DateTable[Date])<=3,"Qtr 4",MONTH(DateTable[Date])<=6,"Qtr 1",MONTH(DateTable[Date])<=9,"Qtr 2","Qtr 3")
+		lineageTag: 9c883210-adfa-4b05-83f0-990dd9e66e60
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Year Hierarchy'
+		lineageTag: 97dddafe-4f87-4825-917a-7a0b24a08750
+
+		level Year
+			lineageTag: c799bbc9-ce2c-401a-8cc6-9bea80dff259
+			column: Year
+
+		level QtrName
+			lineageTag: 5537bb86-2130-4f47-bcf0-b59a66db35cb
+			column: QtrName
+
+		level MonthName
+			lineageTag: 3fc42f11-1d07-416d-a34a-4e66089c65a4
+			column: MonthName
+
+		level WeekDayNum
+			lineageTag: df254b31-7933-4ade-9477-7ac7aa3ac5a1
+			column: WeekDayNum
+
+		level WeekDayName
+			lineageTag: 978c08bd-1aed-48f2-beed-46f4ea655156
+			column: WeekDayName
+
+	partition DateTable = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "DateTable"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

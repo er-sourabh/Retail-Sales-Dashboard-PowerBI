@@ -1,0 +1,42 @@
+table Regions
+	lineageTag: 953782d4-48c2-4171-9262-6325174d153d
+
+	column RegionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 231a55e6-8d9e-41c1-be7b-6130cf79161c
+		summarizeBy: none
+		sourceColumn: RegionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Person
+		dataType: string
+		lineageTag: 4cee9a78-4414-4ce0-9add-a0948a45ca63
+		summarizeBy: none
+		sourceColumn: Person
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 71fd7f2d-ff83-4727-ac43-c1ee5d6f8ae6
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Regions = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "Regions"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

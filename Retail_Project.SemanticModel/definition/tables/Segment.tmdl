@@ -1,0 +1,34 @@
+table Segment
+	lineageTag: d7a2729d-ab2a-4c9d-82b7-c2d7334a399e
+
+	column SegmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: f8d08383-dad2-43f5-9e17-af8517667bd3
+		summarizeBy: none
+		sourceColumn: SegmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: cf960671-7b8c-4235-8a08-4de9e5df6eba
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Segment = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "Segment"]}[Data]
+				in
+				  #"Navigation 2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,155 @@
+table SalesData
+	lineageTag: 45709fa0-88ca-41f9-ac14-f639654650bb
+
+	column OrderId
+		dataType: string
+		lineageTag: 0d523576-f20c-47d5-b1f8-28ed8d7d6e6a
+		summarizeBy: none
+		sourceColumn: OrderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UpdatedDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 645ce6c7-bae0-4bd5-9408-313d88ac3456
+		summarizeBy: none
+		sourceColumn: UpdatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ShipModeId
+		dataType: int64
+		formatString: 0
+		lineageTag: da7b84bf-322d-4ce7-9adc-960b2e897395
+		summarizeBy: none
+		sourceColumn: ShipModeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RegionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0224425f-a6aa-41a4-bd0e-575ac17cf81f
+		summarizeBy: none
+		sourceColumn: RegionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column AddressId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c8ed5c2-29c2-4731-8177-488eec33b44c
+		summarizeBy: none
+		sourceColumn: AddressId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductId
+		dataType: int64
+		formatString: 0
+		lineageTag: 4573467f-d28f-48ae-89f3-06f92a4dc254
+		summarizeBy: none
+		sourceColumn: ProductId
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerId
+		dataType: int64
+		formatString: 0
+		lineageTag: bc0d87dc-d7ad-4173-9501-a798a50ce7bc
+		summarizeBy: none
+		sourceColumn: CustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrderDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bba0a1f-6551-445c-843b-b7df15b04e70
+		summarizeBy: none
+		sourceColumn: OrderDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShipDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 00fb114d-7b83-4eca-b07a-006b44865944
+		summarizeBy: count
+		sourceColumn: ShipDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SegmentId
+		dataType: int64
+		formatString: 0
+		lineageTag: 251880c1-66cb-4493-887f-a404d6c5bd5f
+		summarizeBy: none
+		sourceColumn: SegmentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		lineageTag: 7ab76dcb-8912-47cd-9e3a-ab55120b9731
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b71c6f9-98a2-44d8-9da6-ec14ef30c445
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount
+		dataType: double
+		lineageTag: 1240fe81-3d49-4879-b630-4de53efd09e3
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Profit
+		dataType: double
+		lineageTag: 5e3cdfb9-e5f9-4220-9864-0e31be4a65c9
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Cost Price' = (SalesData[Sales] - SalesData[Profit])/SalesData[Quantity]
+		formatString: 0.000
+		lineageTag: 5dff076d-8204-4a3d-a32d-3d760964d5f4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesData = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Databases("PARABELLUM\SQLSERVERPBI"),
+				  #"Navigation 1" = Source{[Name = "RetailAB"]}[Data],
+				  #"Navigation 2" = #"Navigation 1"{[Schema = "dbo", Item = "SalesData"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(#"Navigation 2",{{"UpdatedDate", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

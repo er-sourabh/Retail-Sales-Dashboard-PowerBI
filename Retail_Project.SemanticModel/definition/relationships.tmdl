@@ -1,0 +1,37 @@
+relationship AutoDetected_469566f0-9d44-4f42-a157-3de43eff44b5
+	fromColumn: SalesData.AddressId
+	toColumn: Address.AddressId
+
+relationship AutoDetected_2fbd9e71-7505-496e-93bd-287263a6898e
+	fromColumn: SalesData.CustomerId
+	toColumn: Customers.CustomerId
+
+relationship AutoDetected_99a6f6b7-245c-4eaa-ba6b-d6fdae44d033
+	fromColumn: SalesData.ProductId
+	toColumn: Products.ProductId
+
+relationship AutoDetected_d79119a3-9542-4730-9a04-e5c6a4c6695f
+	fromColumn: SalesData.RegionId
+	toColumn: Regions.RegionId
+
+relationship AutoDetected_78ee50f4-a021-4712-ace2-5587e0cc0503
+	fromColumn: SalesData.ShipModeId
+	toColumn: ShipMode.ShipModeId
+
+relationship AutoDetected_a737c6a7-8477-47f3-9e5c-972ec56eab45
+	fromColumn: SalesData.SegmentId
+	toColumn: Segment.SegmentId
+
+relationship 36f1af89-d909-eeb6-2242-71e9fe0ed326
+	fromColumn: SalesData.OrderDateKey
+	toColumn: DateTable.DateKey
+
+relationship e612f425-a1a6-0d57-3814-275221dbb354
+	fromColumn: SalesData.OrderId
+	toColumn: Returns.OrderId
+
+relationship b5bcd5aa-bb96-f585-036b-6dfe0f1a0cb6
+	isActive: false
+	fromColumn: SalesData.ShipDateKey
+	toColumn: DateTable.DateKey
+
