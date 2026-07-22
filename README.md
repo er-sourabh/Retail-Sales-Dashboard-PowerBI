@@ -6,6 +6,7 @@
 ![DAX](https://img.shields.io/badge/DAX-Analytics-blue)
 ![Power Query](https://img.shields.io/badge/Power%20Query-ETL-green)
 ![SQL](https://img.shields.io/badge/SQL-Database-orange)
+![Star Schema](https://img.shields.io/badge/Data%20Model-Star%20Schema-success)
 ![Git](https://img.shields.io/badge/Git-Version%20Control-red)
 ![GitHub](https://img.shields.io/badge/GitHub-Portfolio-black)
 
@@ -15,39 +16,147 @@
 
 # 📌 Project Overview
 
-The **Retail Sales Analytics Dashboard** is an interactive Business Intelligence solution built using **Microsoft Power BI** to transform retail sales data into meaningful business insights.
+The **Retail Sales Analytics Dashboard** is an end-to-end Business Intelligence solution built using **Microsoft Power BI**. It transforms raw retail sales data into interactive dashboards that help business users monitor performance, identify trends, evaluate profitability, and make data-driven decisions.
 
-The dashboard enables stakeholders to monitor sales performance, profitability, product trends, customer behavior, and regional performance through intuitive visualizations and interactive reports.
+This project demonstrates the complete BI development lifecycle, including:
 
-This project demonstrates end-to-end Power BI development including data modeling, Power Query transformations, DAX calculations, dashboard design, and business storytelling.
+- Data preparation using **Power Query**
+- Dimensional data modeling using a **Star Schema**
+- Business calculations with **DAX**
+- Interactive dashboard design
+- Business storytelling
+- Version control using **Git & GitHub**
+
+---
+
+# 🚀 Dashboard Preview
+
+## 🏠 Executive Dashboard
+
+![Executive Dashboard](https://github.com/user-attachments/assets/e5073854-a836-4c1f-8d01-a1661c200f26)
+
+---
+
+## 🌍 Region Analysis
+
+![Region Analysis](https://github.com/user-attachments/assets/91f935e6-494c-4583-9602-72b731373357)
+
+---
+
+## 📈 Trend Analysis
+
+![Trend Analysis](https://github.com/user-attachments/assets/9588fe19-ff0d-41d1-a2c1-97453ba49353)
+
+---
+
+## 🗄 Data Model
+
+![Data Model](https://github.com/user-attachments/assets/86e123ac-2f26-450a-a6c9-8e7baec74d52)
+
+---
+
+## 🎯 Custom Tooltip
+
+![Custom Tooltip](https://github.com/user-attachments/assets/0c3a94d9-60c7-4b2b-ba7b-40ec5a23893a)
+
+---
+
+# 📋 Table of Contents
+
+- Project Overview
+- Dataset
+- Business Problem
+- Solution
+- Dashboard Features
+- Technology Stack
+- Dashboard Walkthrough
+- Dashboard Demo
+- Data Model
+- Power Query (ETL)
+- DAX Measures
+- Business Insights
+- Skills Demonstrated
+- Repository Structure
+- Future Enhancements
+- About Me
+
+---
+
+# 📦 Dataset
+
+The dashboard is built using a retail sales dataset containing:
+
+- Customer Information
+- Product Details
+- Sales Transactions
+- Orders
+- Regional Information
+- Shipping Details
+- Returns
+
+The data was transformed, validated, and modeled to support efficient analytical reporting.
 
 ---
 
 # 🎯 Business Problem
 
-Retail organizations generate large amounts of transactional data every day. Without centralized reporting, business users struggle to answer questions such as:
+Retail businesses generate large volumes of transactional data. Without centralized reporting, decision-makers often struggle to answer questions such as:
 
 - Which products generate the highest revenue?
-- Which regions are performing well?
+- Which regions contribute the most profit?
 - How are sales changing over time?
-- Which product categories contribute the most profit?
-- What are the key KPIs that leadership should monitor?
-
-The goal of this dashboard is to transform raw sales data into actionable insights that support strategic decision-making.
+- Which customer segments perform best?
+- Which KPIs should executives monitor regularly?
 
 ---
 
 # 💡 Solution
 
-This dashboard provides a centralized reporting solution that enables users to:
+The dashboard provides an interactive reporting solution that enables users to:
 
-- Monitor overall sales performance
-- Analyze profitability
-- Evaluate regional performance
-- Track sales trends over time
+- Monitor overall business performance
+- Track revenue and profitability
+- Analyze regional sales
 - Compare product categories
-- Filter reports dynamically using slicers
-- Gain deeper insights using custom tooltips
+- Monitor sales trends
+- Filter reports dynamically
+- Explore data using custom tooltips
+
+---
+
+# ✨ Dashboard Features
+
+✔ Executive KPI Dashboard
+
+✔ Region-wise Performance Analysis
+
+✔ Monthly & Yearly Trend Analysis
+
+✔ Interactive Slicers
+
+✔ Cross Filtering & Cross Highlighting
+
+✔ Custom Tooltips
+
+✔ Matrix Reporting
+
+✔ Dynamic KPI Cards
+
+✔ Time Intelligence
+
+✔ Responsive Dashboard Design
+
+---
+
+# 📊 Key Metrics
+
+| Metric | Value |
+|---------|------:|
+| Total Sales | $2.3M+ |
+| Total Profit | $286K+ |
+| Dashboard Pages | 4 |
+| Interactive Visuals | 20+ |
+| Data Model | Star Schema |
 
 ---
 
@@ -58,10 +167,10 @@ This dashboard provides a centralized reporting solution that enables users to:
 | Microsoft Power BI Desktop | Dashboard Development |
 | DAX | Business Calculations |
 | Power Query | Data Transformation |
-| Data Modeling | Relationship Management |
 | SQL | Data Preparation |
+| Star Schema | Data Modeling |
 | Git | Version Control |
-| GitHub | Project Repository |
+| GitHub | Source Code Repository |
 
 ---
 
@@ -69,116 +178,78 @@ This dashboard provides a centralized reporting solution that enables users to:
 
 ## 🏠 Executive Dashboard
 
-The Executive Dashboard provides a high-level overview of business performance through interactive KPI cards and visualizations.
+Provides a high-level summary of business performance through KPI cards and interactive visuals.
 
 ### KPIs
 
-- 💰 Total Sales
-- 📈 Total Profit
-- 📦 Quantity Sold
-- 🛒 Total Orders
+- Total Sales
+- Total Profit
+- Quantity Sold
+- Orders
 
-### Visuals Used
+### Visuals
 
 - KPI Cards
-- Column Chart
-- Bar Chart
+- Bar Charts
+- Column Charts
 - Donut Chart
 - Pie Chart
 - Matrix
 - Slicers
 
-### Business Value
-
-Business leaders can quickly monitor company performance without navigating multiple reports.
-
 ---
 
 ## 🌍 Region Analysis
 
-The Region Analysis page helps stakeholders understand geographical business performance.
+Analyzes regional business performance using geographical visualizations.
 
-### Highlights
+Highlights include:
 
 - Regional Sales
 - Regional Profit
 - Sales Distribution
-- Map Visualization
+- Map Visual
 - Regional Comparison
-
-### Business Value
-
-Enables managers to identify high-performing and underperforming regions for strategic planning.
 
 ---
 
 ## 📈 Trend Analysis
 
-The Trend Analysis page focuses on historical business performance.
+Focuses on historical business performance.
 
-### Features
+Includes:
 
-- Monthly Sales Trend
-- Year-over-Year Growth
-- Product Trend Analysis
-- Interactive Filtering
-
-### Business Value
-
-Helps management identify seasonal trends and long-term business growth patterns.
+- Monthly Trends
+- Year-over-Year Analysis
+- Product Trends
+- Dynamic Filtering
 
 ---
 
 ## 🎯 Custom Tooltip
 
-A dedicated tooltip page enhances user experience by displaying additional contextual information when hovering over report visuals.
-
-This improves report usability without overcrowding the dashboard.
-
----
-
-# 📷 Dashboard Preview
-
-## Executive Dashboard
-<img width="1906" height="938" alt="Executive_Dashboard" src="https://github.com/user-attachments/assets/e5073854-a836-4c1f-8d01-a1661c200f26" />
-
----
-
-## Region Analysis
-
-<img width="1888" height="947" alt="Region_Analysis" src="https://github.com/user-attachments/assets/91f935e6-494c-4583-9602-72b731373357" />
-
----
-
-## Trend Analysis
-
-<img width="1862" height="951" alt="Trend_Analysis" src="https://github.com/user-attachments/assets/9588fe19-ff0d-41d1-a2c1-97453ba49353" />
-
----
-
-## Data Model
-
-<img width="1515" height="903" alt="Model_View" src="https://github.com/user-attachments/assets/86e123ac-2f26-450a-a6c9-8e7baec74d52" />
-
----
-
-## Custom Tooltip
-
-<img width="1917" height="902" alt="Custom Tooltip" src="https://github.com/user-attachments/assets/0c3a94d9-60c7-4b2b-ba7b-40ec5a23893a" />
+Custom tooltips provide additional contextual information without cluttering the dashboard, improving the overall user experience.
 
 ---
 
 # 🎥 Dashboard Demo
 
-A short walkthrough demonstrating dashboard navigation, slicers, tooltips, and interactive reporting.
+A walkthrough demonstrating:
 
-📹 **Demo Video:** Demo/Demo.mp4
+- Dashboard navigation
+- Interactive filtering
+- Slicers
+- Cross-highlighting
+- Custom tooltips
+- Trend analysis
+
+📹 **Demo Video:** `Demo/Demo.mp4`
 
 ---
 
 # 🗄 Data Model
 
-The report follows dimensional modeling principles using a centralized fact table and supporting dimension tables.
+The dashboard follows a **Star Schema** design.
 
 ### Fact Table
 
@@ -189,18 +260,18 @@ The report follows dimensional modeling principles using a centralized fact tabl
 - Customers
 - Products
 - Region
-- Ship Mode
-- Segment
-- Returns
 - Address
-- Date Table
+- Segment
+- Ship Mode
+- Returns
+- Date
 
 ### Benefits
 
-- Improved query performance
-- Simplified report development
-- Scalable architecture
-- Better DAX performance
+- Faster query performance
+- Simplified DAX calculations
+- Better scalability
+- Easier maintenance
 
 ---
 
@@ -218,73 +289,47 @@ Includes:
 - Fiscal Year
 - Fiscal Quarter
 
-This enables accurate trend analysis and future time-based calculations.
-
 ---
 
 # ⚙ Power Query (ETL)
 
-Power Query was used to prepare the dataset before modeling.
-
-### Transformations
+Data preparation included:
 
 - Data Cleaning
+- Removing Null Values
 - Data Type Conversion
-- Removing Unnecessary Columns
-- Creating Date Dimension
+- Creating Date Table
 - Data Validation
-- Loading into Power BI Model
+- Loading to Data Model
 
 ---
 
 # 🧮 DAX Measures
 
-The report utilizes DAX measures to calculate business KPIs.
+The dashboard uses DAX to calculate business KPIs.
 
 Examples include:
 
 - Total Sales
 - Total Profit
 - Quantity Sold
-- Total Orders
-- Parent Sales %
+- Orders
 - Profit Margin
+- Parent Sales %
 - Time Intelligence Measures
-
----
-
-# 🚀 Key Features
-
-✅ Interactive Dashboard
-
-✅ Cross Filtering
-
-✅ Cross Highlighting
-
-✅ Dynamic Slicers
-
-✅ KPI Cards
-
-✅ Matrix Visual
-
-✅ Custom Tooltips
-
-✅ Time Intelligence
-
-✅ Responsive Visual Design
 
 ---
 
 # 📈 Business Insights
 
-Some key insights generated through the dashboard include:
+The dashboard provides actionable business insights, including:
 
-- Sales exceeded **$2.3M** with an overall profit of approximately **$286K**.
-- Technology is the highest revenue-generating product category.
-- Sales show a consistent upward trend across multiple years.
-- Regional analysis identifies areas with strong and weak business performance.
-- Product-level analysis helps identify high-performing product segments.
-- Interactive filtering enables users to analyze business performance across different dimensions.
+- Total sales exceeded **$2.3M** with an overall profit of approximately **$286K**.
+- Technology products generated the highest revenue.
+- Sales show consistent growth across multiple years.
+- Regional analysis highlights high-performing and underperforming markets.
+- Product-level analysis identifies key revenue contributors.
+- Interactive filtering enables detailed analysis across different business dimensions.
 
 ---
 
@@ -303,39 +348,39 @@ Some key insights generated through the dashboard include:
 - DAX
 - Power Query
 - Data Modeling
-- Relationships
+- Star Schema
 - Time Intelligence
 
-### Data Analytics
+### Analytics
 
+- Sales Analysis
 - Trend Analysis
 - Regional Analysis
-- Sales Analytics
 - Interactive Reporting
 
-### Version Control
+### Development
 
 - Git
 - GitHub
+- Documentation
 
 ---
 
 # 📂 Repository Structure
 
 ```
-Retail-Sales-Analytics
+Retail-Sales-Dashboard-PowerBI
 │
 ├── README.md
 ├── Demo
 │   └── Demo.mp4
 │
 ├── Screenshots
-│   ├── Executive Dashboard.png
-│   ├── Region Analysis.png
-│   ├── Trend Analysis.png
-│   ├── Data Model.png
-│   ├── Date Table.png
-│   └── Custom Tooltip.png
+│   ├── Executive_Dashboard.png
+│   ├── Region_Analysis.png
+│   ├── Trend_Analysis.png
+│   ├── Data_Model.png
+│   └── Custom_Tooltip.png
 │
 ├── Retail_Project.pbip
 ├── Retail_Project.Report
@@ -350,26 +395,43 @@ Retail-Sales-Analytics
 - Incremental Refresh
 - Microsoft Fabric Integration
 - Deployment Pipelines
+- AI-powered Visuals
 - Forecasting
-- AI Visuals
 - Mobile Layout Optimization
 
 ---
 
 # 👨‍💻 About Me
 
-I am a **Power BI Developer** with experience in Business Intelligence, SQL, DAX, Power Query, and interactive dashboard development. I enjoy transforming raw data into actionable insights that enable organizations to make informed business decisions.
+Hi, I'm **Sourabh Sharma**, a **Power BI Developer** passionate about building interactive dashboards, designing scalable data models, and transforming raw data into actionable business insights.
+
+**Core Skills**
+
+- Power BI
+- DAX
+- Power Query
+- SQL
+- Data Modeling
+- Business Intelligence
+- Git & GitHub
 
 ---
 
 # 📬 Connect With Me
 
-**LinkedIn:** https://www.linkedin.com/in/sourabh-sharma2396
-
-**GitHub:** https://github.com/er-sourabh
+- 💼 **LinkedIn:** <https://www.linkedin.com/in/sourabh-sharma2396>
+- 💻 **GitHub:** <https://github.com/er-sourabh>
 
 ---
 
-## ⭐ If you found this project helpful, consider giving it a Star!
+## ⭐ Support the Project
 
-If you have feedback or suggestions, feel free to open an Issue or connect with me on LinkedIn.
+If you found this project helpful or interesting:
+
+⭐ Star the repository
+
+🍴 Fork it
+
+💬 Share your feedback by opening an Issue
+
+Thank you for visiting my portfolio!
