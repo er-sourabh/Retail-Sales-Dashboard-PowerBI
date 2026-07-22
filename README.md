@@ -29,6 +29,21 @@ This project demonstrates the complete BI development lifecycle, including:
 
 ---
 
+# ⭐ Repository Highlights
+
+- 📊 Interactive Retail Sales Dashboard
+- 📈 Executive KPI Reporting
+- 🗺 Regional Performance Analysis
+- 📅 Time Intelligence using DAX
+- 🏗 Star Schema Data Model
+- ⚡ Power Query ETL
+- 🎯 Custom Tooltips
+- 🔄 Cross-filtering & Dynamic Slicers
+- 📹 Dashboard Walkthrough Video
+- 📂 Version Controlled with Git & GitHub
+
+---
+
 # 🚀 Dashboard Preview
 
 ## 🏠 Executive Dashboard
@@ -243,7 +258,7 @@ A walkthrough demonstrating:
 - Custom tooltips
 - Trend analysis
 
-📹 **Watch the Dashboard Demo** `[Demo/Demo.mp4](https://github.com/er-sourabh/Retail-Sales-Dashboard-PowerBI/blob/main/Demo/Retail_Dashboard_Demo.mp4)`
+📹 ▶️ **[Watch the Dashboard Demo](https://github.com/er-sourabh/Retail-Sales-Dashboard-PowerBI/blob/main/Demo/Retail_Dashboard_Demo.mp4)**
 
 ---
 
